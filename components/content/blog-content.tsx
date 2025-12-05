@@ -181,7 +181,7 @@ export function BlogContent({ postId, onNavigate }: BlogContentProps) {
       {/* Jollie image */}
       <div className="mt-8 flex justify-center">
         <img
-          src="/Jollie2-ascii-art.png"
+          src={`${BASE_PATH}/Jollie2-ascii-art.png`}
           alt="Jollie"
           className="w-3/4 h-auto"
         />

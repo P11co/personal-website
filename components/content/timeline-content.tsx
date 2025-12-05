@@ -1,3 +1,5 @@
+import { BASE_PATH } from "@/lib/constants"
+
 const timelineEvents = [
   { year: "2026", event: "Expected graduation", type: "next steps" },
   { year: "2025", event: "Studied at UC Berkeley, conducted research at the Berkeley Speech Group", type: "research" },
@@ -34,7 +36,7 @@ export function TimelineContent() {
       {/* Calhacks photo */}
       <div className="mt-8 flex flex-col items-center">
         <img
-          src="/calhacks_photo-ascii-art.png"
+          src={`${BASE_PATH}/calhacks_photo-ascii-art.png`}
           alt="My team and friends at Calhacks 12"
           className="w-3/4 h-auto"
         />

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { BASE_PATH } from "@/lib/constants"
 
 // To change email: run `btoa('your@email.com')` in browser console, paste result below
 const ENCODED_EMAIL = "ZXhhbXBsZUBlbWFpbC5jb20=" // example@email.com
@@ -100,7 +101,7 @@ export function ContactContent() {
       {/* ASCII Art */}
       <div className="mt-8 flex flex-col items-center">
         <img
-          src="/pkthunder-ascii-art.png"
+          src={`${BASE_PATH}/pkthunder-ascii-art.png`}
           alt="PK Thunder ASCII Art"
           className="w-3/4 h-auto"
         />
