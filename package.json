@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/generate-blog-data.mjs",
     "build": "next build",
-    "dev": "next dev",
+    "dev": "node scripts/generate-blog-data.mjs && next dev",
     "lint": "eslint .",
     "start": "next start"
   },

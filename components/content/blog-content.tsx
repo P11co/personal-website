@@ -27,43 +27,28 @@ export function BlogContent({ postId, onNavigate }: BlogContentProps) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  // Fetch all posts for the list view
+  // Fetch blog data from static JSON file
   useEffect(() => {
-    if (!postId) {
-      fetch("/api/blog")
-        .then(res => res.json())
-        .then(data => {
-          if (Array.isArray(data)) {
-            setPosts(data)
+    fetch("/blog-data.json")
+      .then(res => res.json())
+      .then((data: BlogPost[]) => {
+        if (Array.isArray(data)) {
+          setPosts(data)
+          if (postId) {
+            const post = data.find(p => p.id === postId)
+            if (post) {
+              setCurrentPost(post)
+            } else {
+              setError("Post not found")
+            }
           }
-          setLoading(false)
-        })
-        .catch(() => {
-          setError("Failed to load posts")
-          setLoading(false)
-        })
-    }
-  }, [postId])
-
-  // Fetch single post when postId is provided
-  useEffect(() => {
-    if (postId) {
-      setLoading(true)
-      fetch(`/api/blog/${postId}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data.error) {
-            setError(data.error)
-          } else {
-            setCurrentPost(data)
-          }
-          setLoading(false)
-        })
-        .catch(() => {
-          setError("Failed to load post")
-          setLoading(false)
-        })
-    }
+        }
+        setLoading(false)
+      })
+      .catch(() => {
+        setError("Failed to load posts")
+        setLoading(false)
+      })
   }, [postId])
 
   if (loading) {

@@ -98,12 +98,13 @@ export function ContactContent() {
       </div>
 
       {/* ASCII Art */}
-      <div className="flex justify-center mt-8">
+      <div className="mt-8 flex flex-col items-center">
         <img
           src="/pkthunder-ascii-art.png"
           alt="PK Thunder ASCII Art"
           className="w-3/4 h-auto"
         />
+        <p className="text-amber-600 text-sm font-mono mt-2">Ness' PK Thunder is my favorite move in Smash Bros</p>
       </div>
     </div>
   )
