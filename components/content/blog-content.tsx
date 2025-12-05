@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { BASE_PATH } from "@/lib/constants"
 
 interface BlogPost {
   id: string
@@ -29,7 +30,7 @@ export function BlogContent({ postId, onNavigate }: BlogContentProps) {
 
   // Fetch blog data from static JSON file
   useEffect(() => {
-    fetch("/blog-data.json")
+    fetch(`${BASE_PATH}/blog-data.json`)
       .then(res => res.json())
       .then((data: BlogPost[]) => {
         if (Array.isArray(data)) {

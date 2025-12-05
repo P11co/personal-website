@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { BASE_PATH } from "@/lib/constants"
 
 interface Quote {
   text: string
@@ -21,7 +22,7 @@ export function QuoteOfTheDay({ startAnimation = false, onComplete }: QuoteOfThe
 
   // Fetch quotes on mount
   useEffect(() => {
-    fetch("/quotes.json")
+    fetch(`${BASE_PATH}/quotes.json`)
       .then((res) => res.json())
       .then((quotes: Quote[]) => {
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]

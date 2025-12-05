@@ -1,12 +1,13 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { BASE_PATH } from "@/lib/constants"
 
 export function HomeContent() {
   const [asciiArt, setAsciiArt] = useState<string>("")
 
   useEffect(() => {
-    fetch("/pfp.txt")
+    fetch(`${BASE_PATH}/pfp.txt`)
       .then((res) => res.text())
       .then((text) => setAsciiArt(text))
       .catch(() => setAsciiArt(""))
