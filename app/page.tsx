@@ -10,6 +10,7 @@ import {
   PortfolioContent,
   TimelineContent,
   ContactContent,
+  GenreGuesserPost,
 } from "@/components/content"
 
 export default function HomePage() {
@@ -51,7 +52,10 @@ export default function HomePage() {
       return <BlogContent postId={postId} onNavigate={setCurrentPath} />
     }
     if (currentPath === "~/portfolio") {
-      return <PortfolioContent />
+      return <PortfolioContent onNavigate={setCurrentPath} />
+    }
+    if (currentPath === "~/portfolio/genre-guesser") {
+      return <GenreGuesserPost onNavigate={setCurrentPath} />
     }
     if (currentPath === "~/timeline") {
       return <TimelineContent />

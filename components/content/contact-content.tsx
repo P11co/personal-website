@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { BASE_PATH } from "@/lib/constants"
 
 // To change email: run `btoa('your@email.com')` in browser console, paste result below
-const ENCODED_EMAIL = "ZXhhbXBsZUBlbWFpbC5jb20=" // example@email.com
+const ENCODED_EMAIL = "cGlpY29AYmVya2VsZXkuZWR1" // piico@berkeley.edu
 
 export function ContactContent() {
   const [emailState, setEmailState] = useState<"hidden" | "decrypting" | "revealed">("hidden")
